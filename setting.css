@@ -1,0 +1,155 @@
+body {
+  background: green;
+  margin: auto;
+  text-align: center;
+}
+
+#number {
+  font-size: 80px;
+}
+
+#create {
+  margin: auto;
+  text-align: center;
+}
+
+.canvasArea {
+  width: 425px;
+  background: white;
+  margin: auto;
+}
+
+.bingocard {
+  width: 425px;
+  height: 500px;
+  background: greenyellow;
+  margin: auto;
+}
+
+#cardTatle {
+  font-size: 55px;
+}
+
+#table_border {
+  font-size: 30px;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  position: relative; /* 今の位置を基準 */
+  top: -17px;
+  left: 12px;
+}
+
+#numField1 {
+  background: white;
+}
+#numField2 {
+  background: white;
+}
+#numField3 {
+  background: white;
+}
+#numField4 {
+  background: white;
+}
+#numField5 {
+  background: white;
+}
+
+#create {
+  text-align: center;
+  position: relative; /* 今の位置を基準 */
+}
+
+#x1y0 {
+  width: 39px;
+  background: pink;
+}
+#x1y0 {
+  background: pink;
+}
+#x1y0 {
+  background: pink;
+}
+#x1y0 {
+  background: pink;
+}
+#x1y0 {
+  background: pink;
+}
+
+#x1y1 {
+  background: white;
+}
+#x2y1 {
+  background: white;
+}
+#x3y1 {
+  background: white;
+}
+#x4y1 {
+  background: white;
+}
+#x5y1 {
+  background: white;
+}
+#x1y2 {
+  background: white;
+}
+#x2y2 {
+  background: white;
+}
+#x3y2 {
+  background: white;
+}
+#x4y2 {
+  background: white;
+}
+#x5y2 {
+  background: white;
+}
+#x1y3 {
+  background: white;
+}
+#x2y3 {
+  background: white;
+}
+#x3y3 {
+  background: red;
+}
+#x4y3 {
+  background: white;
+}
+#x5y3 {
+  background: white;
+}
+#x1y4 {
+  background: white;
+}
+#x2y4 {
+  background: white;
+}
+#x3y4 {
+  background: white;
+}
+#x4y4 {
+  background: white;
+}
+#x5y4 {
+  background: white;
+}
+#x1y5 {
+  background: white;
+}
+#x2y5 {
+  background: white;
+}
+#x3y5 {
+  background: white;
+}
+#x4y5 {
+  background: white;
+}
+#x5y5 {
+  background: white;
+}
