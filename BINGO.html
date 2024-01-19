@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <script type="text/javascript" src="script.js"></script>
+  <h1>BINGO GAME!!!</h1>
+</head>
+
+<body>
+  <div id = "number">?</div>
+  <button type="submit" autofocus onclick="startRandomNumber()"><h2>スタート！！</h2></button>
+  <!-- <button type="submit" autofocus onclick="startRandomNumber()"><h2>スタート！</h2></button> -->
+</body>
+<body>
+  <div class="canvasField">
+    <h2>これまでに出た数字</h2>
+    <table class="canvasArea" border="1">
+      <th>
+        <p><div id = "canvas">出た数字が表示されます</div></p>
+      </th>
+    </table>
+  </div>
+  <div class="bingocard">
+    <h1><div id="cardTatle">BINGO CARD</div></h1>
+    <div>
+      <table id="table_border" border="1" style=border-color:gray>
+        <row>
+          <tr>
+              <th id="x1y0">B</th>
+              <th id="x1y0">I</th>
+              <th id="x1y0">N</th>
+              <th id="x1y0">G</th>
+              <th id="x1y0">O</th>
+          </tr>
+        </row>
+        <row0>
+          <tr>
+            <td id="x1y1"><div id = "row0Num1">Null</div></td>
+            <td id="x2y1"><div id = "row1Num1">Null</div></td>
+            <td id="x3y1"><div id = "row2Num1">Null</div></td>
+            <td id="x4y1"><div id = "row3Num1">Null</div></td>
+            <td id="x5y1"><div id = "row4Num1">Null</div></td>
+          </tr>
+        </row0>
+        <row1>
+          <tr>
+            <td id="x1y2"><div id = "row0Num2">Null</div></td>
+            <td id="x2y2"><div id = "row1Num2">Null</div></td>
+            <td id="x3y2"><div id = "row2Num2">Null</div></td>
+            <td id="x4y2"><div id = "row3Num2">Null</div></td>
+            <td id="x5y2"><div id = "row4Num2">Null</div></td>
+          </tr>
+        </row1> 
+        <row2>
+          <tr>
+            <td id="x1y3"><div id = "row0Num3">Null</div></td>
+            <td id="x2y3"><div id = "row1Num3">Null</div></td>
+            <td id="x3y3"><div id = "row2Num3">Null</div></td>
+            <td id="x4y3"><div id = "row3Num3">Null</div></td>
+            <td id="x5y3"><div id = "row4Num3">Null</div></td>
+          </tr>
+        </row2> 
+        <row3>
+          <tr>
+            <td id="x1y4"><div id = "row0Num4">Null</div></td>
+            <td id="x2y4"><div id = "row1Num4">Null</div></td>
+            <td id="x3y4"><div id = "row2Num4">Null</div></td>
+            <td id="x4y4"><div id = "row3Num4">Null</div></td>
+            <td id="x5y4"><div id = "row4Num4">Null</div></td>
+          </tr>
+        </row3>
+        <row4>
+          <tr>
+            <td id="x1y5"><div id = "row0Num5">Null</div></td>
+            <td id="x2y5"><div id = "row1Num5">Null</div></td>
+            <td id="x3y5"><div id = "row2Num5">Null</div></td>
+            <td id="x4y5"><div id = "row3Num5">Null</div></td>
+            <td id="x5y5"><div id = "row4Num5">Null</div></td>
+          </tr>
+        </row4> 
+      </table>
+    </div>
+  </div>
+</body>
+
+<body>
+  <div class="state">
+    <h1><div id="bingo"></div></h1>
+    <h1><div id="oneMore"></div></h1>
+  </div>
+  <button id="create" onclick="createCard()"><h1>BINGOカードを作る</h1></button>
+  <button id="reset" onclick="resetCard()"><h1>ゲームをリセット</h1></button>
+</body>
+<!-- <input type="button" value="BINGOカードを作る" onclick="action()">  -->
+<!-- 上記の表記でも出来る -->
+
+<link rel="stylesheet" href="setting.css">
+<!-- <script src="script.js"></script> -->
+</html>
