@@ -6,28 +6,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="#000000">
   <script type="text/javascript" src="script.js"></script>
+  <title>BINGO GAME!!!</title>
   <h1>BINGO GAME!!!</h1>
 </head>
 
 <body>
-  <div id = "number">?</div>
-  <button type="submit" autofocus onclick="startRandomNumber()"><h2>スタート！！</h2></button>
-  <!-- <button type="submit" autofocus onclick="startRandomNumber()"><h2>スタート！</h2></button> -->
-</body>
-<body>
-  <div class="canvasField">
-    <h2>これまでに出た数字</h2>
-    <table class="canvasArea" border="1">
-      <th>
-        <p><div id = "canvas">出た数字が表示されます</div></p>
-      </th>
-    </table>
-  </div>
-  <div class="bingocard">
-    <h1><div id="cardTatle">BINGO CARD</div></h1>
+  <div id="backcanvas">
     <div>
-      <table id="table_border" border="1" style=border-color:gray>
-        <row>
+      <h1>ルーレット</h1>
+      <p id = "number">?</p>
+      <button type="submit" autofocus onclick="startRandomNumber()"><h2>スタート！！</h2></button>
+    </div>
+    <div>
+      <table class="table_number">
+        <h1><caption>これまでに出た数字</caption></h1>
+        <tr>
+          <td id="1">1</td>
+          <td id="2">2</td>
+          <td id="3">3</td>
+          <td id="4">4</td>
+          <td id="5">5</td>
+          <td id="6">6</td>
+          <td id="7">7</td>
+          <td id="8">8</td>
+          <td id="9">9</td>
+          <td id="10">10</td>
+          <td id="11">11</td>
+          <td id="12">12</td>
+          <td id="13">13</td>
+          <td id="14">14</td>
+          <td id="15">15</td>
+        </tr>
+        <tr>
+          <td id="16">16</td>
+          <td id="17">17</td>
+          <td id="18">18</td>
+          <td id="19">19</td>
+          <td id="20">20</td>
+          <td id="21">21</td>
+          <td id="22">22</td>
+          <td id="23">23</td>
+          <td id="24">24</td>
+          <td id="25">25</td>
+          <td id="26">26</td>
+          <td id="27">27</td>
+          <td id="28">28</td>
+          <td id="29">29</td>
+          <td id="30">30</td>
+        </tr>
+        <tr>
+          <td id="31">31</td>
+          <td id="32">32</td>
+          <td id="33">33</td>
+          <td id="34">34</td>
+          <td id="35">35</td>
+          <td id="36">36</td>
+          <td id="37">37</td>
+          <td id="38">38</td>
+          <td id="39">39</td>
+          <td id="40">40</td>
+          <td id="41">41</td>
+          <td id="42">42</td>
+          <td id="43">43</td>
+          <td id="44">44</td>
+          <td id="45">45</td>
+        </tr>
+        <tr>
+          <td id="46">46</td>
+          <td id="47">47</td>
+          <td id="48">48</td>
+          <td id="49">49</td>
+          <td id="50">50</td>
+          <td id="51">51</td>
+          <td id="52">52</td>
+          <td id="53">53</td>
+          <td id="54">54</td>
+          <td id="55">55</td>
+
+          <td id="56">56</td>
+          <td id="57">57</td>
+          <td id="58">58</td>
+          <td id="59">59</td>
+          <td id="60">60</td>
+        </tr>
+        <tr>
+          <td id="61">61</td>
+          <td id="62">62</td>
+          <td id="63">63</td>
+          <td id="64">64</td>
+          <td id="65">65</td>
+          <td id="66">66</td>
+          <td id="67">67</td>
+          <td id="68">68</td>
+          <td id="69">69</td>
+          <td id="70">70</td>
+          <td id="71">71</td>
+          <td id="72">72</td>
+          <td id="73">73</td>
+          <td id="74">74</td>
+          <td id="75">75</td>
+        </tr>
+      </table>
+    </div>
+    <div class="bingocard">
+      <h1><div id="cardTatle">BINGO CARD</div></h1>
+      <div>
+        <table class="table_border" style=border-color:gray>
           <tr>
               <th id="x1y0">B</th>
               <th id="x1y0">I</th>
@@ -35,8 +119,6 @@
               <th id="x1y0">G</th>
               <th id="x1y0">O</th>
           </tr>
-        </row>
-        <row0>
           <tr>
             <td id="x1y1"><div id = "row0Num1">Null</div></td>
             <td id="x2y1"><div id = "row1Num1">Null</div></td>
@@ -44,8 +126,6 @@
             <td id="x4y1"><div id = "row3Num1">Null</div></td>
             <td id="x5y1"><div id = "row4Num1">Null</div></td>
           </tr>
-        </row0>
-        <row1>
           <tr>
             <td id="x1y2"><div id = "row0Num2">Null</div></td>
             <td id="x2y2"><div id = "row1Num2">Null</div></td>
@@ -53,8 +133,6 @@
             <td id="x4y2"><div id = "row3Num2">Null</div></td>
             <td id="x5y2"><div id = "row4Num2">Null</div></td>
           </tr>
-        </row1> 
-        <row2>
           <tr>
             <td id="x1y3"><div id = "row0Num3">Null</div></td>
             <td id="x2y3"><div id = "row1Num3">Null</div></td>
@@ -62,8 +140,6 @@
             <td id="x4y3"><div id = "row3Num3">Null</div></td>
             <td id="x5y3"><div id = "row4Num3">Null</div></td>
           </tr>
-        </row2> 
-        <row3>
           <tr>
             <td id="x1y4"><div id = "row0Num4">Null</div></td>
             <td id="x2y4"><div id = "row1Num4">Null</div></td>
@@ -71,8 +147,6 @@
             <td id="x4y4"><div id = "row3Num4">Null</div></td>
             <td id="x5y4"><div id = "row4Num4">Null</div></td>
           </tr>
-        </row3>
-        <row4>
           <tr>
             <td id="x1y5"><div id = "row0Num5">Null</div></td>
             <td id="x2y5"><div id = "row1Num5">Null</div></td>
@@ -80,23 +154,17 @@
             <td id="x4y5"><div id = "row3Num5">Null</div></td>
             <td id="x5y5"><div id = "row4Num5">Null</div></td>
           </tr>
-        </row4> 
-      </table>
+        </table>
+      </div>
     </div>
+    <!-- <div class="state"> -->
+      <h1 id="bingo"></h1>
+      <h1 id="oneMore"></h1>
+    <!-- </div> -->
+    <!-- <button id="create" onclick="createCard()"><h1>BINGOカードを作る</h1></button> -->
+    <button id="reset" onclick="resetCard()"><h1>ゲームをリセット</h1></button>
   </div>
 </body>
-
-<body>
-  <div class="state">
-    <h1><div id="bingo"></div></h1>
-    <h1><div id="oneMore"></div></h1>
-  </div>
-  <button id="create" onclick="createCard()"><h1>BINGOカードを作る</h1></button>
-  <button id="reset" onclick="resetCard()"><h1>ゲームをリセット</h1></button>
-</body>
-<!-- <input type="button" value="BINGOカードを作る" onclick="action()">  -->
-<!-- 上記の表記でも出来る -->
-
 <link rel="stylesheet" href="setting.css">
 <!-- <script src="script.js"></script> -->
 </html>
