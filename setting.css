@@ -24,11 +24,6 @@ body {
   top: -20px;
 }
 
-#create {
-  margin: auto;
-  text-align: center;
-}
-
 .bingocard {
   width: 425px;
   height: 500px;
@@ -77,11 +72,6 @@ table, td, th {
 }
 #numField5 {
   background: white;
-}
-
-#create {
-  text-align: center;
-  position: relative; /* 今の位置を基準 */
 }
 
 #x1y0 {
