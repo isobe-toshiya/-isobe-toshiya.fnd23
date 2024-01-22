@@ -1,11 +1,27 @@
 body {
-  background: green;
+  /* background: green; */
   margin: auto;
   text-align: center;
 }
 
+#backcanvas {
+  width: 1300px;
+  /* height: 1100px; */
+  background: green;
+  margin: auto;
+}
+
 #number {
+  width: 150px;/*幅*/
+	height: 150px;/*高さ*/
+	border-radius: 50%;/*角丸*/
+  background: white;
   font-size: 80px;
+  text-align: center;
+  line-height: 160px;
+  margin: auto;
+  position: relative; /* 今の位置を基準 */
+  top: -20px;
 }
 
 #create {
@@ -13,16 +29,10 @@ body {
   text-align: center;
 }
 
-.canvasArea {
-  width: 425px;
-  background: white;
-  margin: auto;
-}
-
 .bingocard {
   width: 425px;
   height: 500px;
-  background: greenyellow;
+  background: skyblue;
   margin: auto;
 }
 
@@ -30,7 +40,20 @@ body {
   font-size: 55px;
 }
 
-#table_border {
+table, td, th {
+  border: 1px solid;
+}
+/* td, th {
+  text-align: center;
+} */
+
+.table_number {
+  font-size: 30px;
+  background: white;
+  margin: auto;
+}
+
+.table_border {
   font-size: 30px;
   width: 400px;
   height: 400px;
@@ -81,6 +104,7 @@ body {
 #x1y1 {
   background: white;
 }
+
 #x2y1 {
   background: white;
 }
