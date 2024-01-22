@@ -22,9 +22,7 @@ const startRandomNumber = () => {
   }
   getNumberOnCard(result);
 
-  if (numbersAlreadyOut.length === 76) {
-    setTimeout(gameSet, 50); //処理時間を考慮
-  }
+  setTimeout(gameSet, 50); //処理時間を考慮
 }
 
 //ビンゴカードの数字を確認
@@ -156,8 +154,10 @@ const resetCard = () => {
 
 //ゲーム終了
 function gameSet() {
-  if (window.confirm("終了！！\nゲームをリセットしますか？")) {
-    resetAction();
+  if (numbersAlreadyOut.length === 76) {
+    if (window.confirm("終了！！\nゲームをリセットしますか？")) {
+      resetAction();
+    }
   }
 }
 
