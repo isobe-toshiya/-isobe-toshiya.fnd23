@@ -1,23 +1,37 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-//ビンゴ(ランダム)
-let result = 0;
-let numbersAlreadyOut = [];
 
+let result = 0;
+let numbersAlreadyOut = [0];
+
+//ビンゴ(ランダム)
 const startRandomNumber = () => {
-  while(numbersAlreadyOut.length < 75) {
+  while (numbersAlreadyOut.length <= 75) {
     cardRandomNumber(1, 75);
-    if(!numbersAlreadyOut.includes(result)) {
+    if (!numbersAlreadyOut.includes(result)) {
       numbersAlreadyOut.push(result);
       break;
     }
   }
+  const number = document.getElementById("number");
+  number.innerText = result;
+  for (let i = 1; i <= numbersAlreadyOut.length - 1; i++) {
+    const canvas = document.getElementById(`${numbersAlreadyOut[i]}`);
+    canvas.style.background = "pink";
+  }
+  getNumberOnCard(result);
 
+  if (numbersAlreadyOut.length === 76) {
+    setTimeout(gameSet, 50); //処理時間を考慮
+  }
+}
+
+//ビンゴカードの数字を確認
+function getNumberOnCard(result) {
   for (let i = 1; i <= 5; i++) {
     for (let j = 1; j <= 5; j++) {
       let xyNum = document.getElementById(`x${i}y${j}`);
-      // console.log(xyNum.innerText);
       if (xyNum.innerText == result) {
         xyNum.style.background = "red";
       }
@@ -26,90 +40,37 @@ const startRandomNumber = () => {
 
   let bingoTotal = 0;
   let oneMoreTotal = 0;
-  for (const rowNum of card) {
-    let line = 0;
-    for (let k = 0; k < 5; k++) {
-      for (const outNum of numbersAlreadyOut) {
-        if (outNum === rowNum[k]) {
-          line += 1;
+  let diaArr = [diagonal1, diagonal2];
+  let lineArr = [card, card1, diaArr];
+  for (const addLine of lineArr) {
+    for (const rowNum of addLine) {
+      let line = 0;
+      for (let k = 0; k < 5; k++) {
+        for (const outNum of numbersAlreadyOut) {
+          if (outNum === rowNum[k]) {
+            line += 1;
+          }
         }
       }
-      if (0 === rowNum[k]){
-        line += 1;
+      if (line === 5) {
+        bingoTotal += 1;
+      } else if (line === 4) {
+        oneMoreTotal += 1; 
       }
     }
-    if (line === 5) {
-      bingoTotal += 1;
-    } else if (line === 4) {
-      oneMoreTotal += 1; 
-    }
   }
-  for (const rowNum of card1) {
-    let line = 0;
-    for (let l = 0; l < 5; l++) {
-      for (const outNum of numbersAlreadyOut) {
-        if (outNum === rowNum[l]) {
-          line += 1;
-        }
-      }
-      if (0 === rowNum[l]){
-        line += 1;
-      }
-    }
-    if (line === 5) {
-      bingoTotal += 1;
-    } else if (line === 4) {
-      oneMoreTotal += 1;
-    }
-  }
-
-  let line = 0;
-  for (let diaNum of diagonal1) {
-    for (const outNum of numbersAlreadyOut) {
-      if (outNum === diaNum) {
-        line += 1;
-      }
-    }
-    if (0 === diaNum){
-      line += 1;
-    }
-  }
-  if (line === 5) {
-    bingoTotal += 1;
-  } else if (line === 4) {
-    oneMoreTotal += 1;
-  }
-  
-  line = 0;
-  for (let diaNum of diagonal2) {
-    for (const outNum of numbersAlreadyOut) {
-      if (outNum === diaNum) {
-        line += 1;
-      }
-    }
-    if (0 === diaNum){
-      line += 1;
-    }
-  }
-  if (line === 5) {
-    bingoTotal += 1;
-  } else if (line === 4) {
-    oneMoreTotal += 1;
-  }
-
+  const bingo = document.getElementById("bingo");
   if (bingoTotal > 0) {
-    const bingo = document.getElementById("bingo");
     bingo.innerText = `${bingoTotal} BINGO!`;
-  } 
-  if (oneMoreTotal > 0) {
-    const oneMore = document.getElementById("oneMore");
-    oneMore.innerText = `${oneMoreTotal} リーチ!`;
+  } else {
+    bingo.innerText = "";
   }
-  const number = document.getElementById("number");
-  number.innerHTML = result;
-
-  const canvas = document.getElementById("canvas");
-  canvas.innerHTML = numbersAlreadyOut;
+  const oneMore = document.getElementById("oneMore");
+  if (oneMoreTotal > 0) {
+    oneMore.innerText = `${oneMoreTotal} リーチ!`;
+  } else {
+    oneMore.innerText = "";
+  }
 }
 
 //ビンゴカード作成と数字のランダム表示
@@ -119,7 +80,6 @@ function cardRandomNumber(minNum, maxNum) {
 }
 
 let cardNumbers = [];
-// const cardNumbers = [["B", "I", "N", "G", "O"]];
 let row1 = [];
 let row2 = [];
 let row3 = [];
@@ -140,20 +100,9 @@ function bingoCardNumber(){
   let minNum = 1;
   let maxNum = 15;
 
-  row1 = [];
-  row2 = [];
-  row3 = [];
-  row4 = [];
-  row5 = [];
-  card = [row1, row2, row3, row4, row5];
-  column1 = [];
-  column2 = [];
-  column3 = [];
-  column4 = [];
-  column5 = [];
-  card1 = [column1, column2, column3, column4, column5];
-  diagonal1 = [];
-  diagonal2 = [];
+  card = [row1 = [], row2 = [], row3 = [], row4 = [], row5 = []];
+  card1 = [column1 = [], column2 = [], column3 = [], column4 = [], column5 = []];
+  diagonal1 = [], diagonal2 = [];
 
   for (let i = 0; i < 5; i++) {
     while (card[i].length < 5) {
@@ -190,11 +139,6 @@ function bingoCardNumber(){
   diagonal2.push(row4[1]);
   diagonal2.push(row5[0]);
 
-  // console.log(card);
-  // console.log(card1);
-  // console.log(diagonal1);
-  // console.log(diagonal2);
-
   return cardNumbers;
 }
 
@@ -202,21 +146,38 @@ function bingoCardNumber(){
 const createCard = () => {
   bingoCardNumber();
 }
-// const create = document.getElementById("create");
-// create.addEventListener("click", bingoCardNumber);
 
 //ゲームリセット
 const resetCard = () => {
+  if (window.confirm("ゲームをリセットしますか？")) {
+    resetAction();
+  }
+}
+
+//ゲーム終了
+function gameSet() {
+  if (window.confirm("終了！！\nゲームをリセットしますか？")) {
+    resetAction();
+  }
+}
+
+//リセットの処理
+function resetAction() {
   bingoCardNumber();
-  numbersAlreadyOut = [];
+  numbersAlreadyOut = [0];
+  const bingo = document.getElementById("bingo");
+  bingo.innerText = "";
+  const oneMore = document.getElementById("oneMore");
+  oneMore.innerText = "";
   const number = document.getElementById("number");
   number.innerHTML = "?";
-  const reset = document.getElementById("canvas");
-  reset.innerText = "出た数字が表示されます";
-
-  for (let i = 1; i <= 5; i++) {
-    for (let j = 1; j <= 5; j++) {
-      const resetStyle = document.getElementById(`x${i}y${j}`);
+  for(let i = 1; i <= 75; i++) {
+    const canvas = document.getElementById(`${i}`);
+    canvas.style.background = "white";
+  }
+  for (let j = 1; j <= 5; j++) {
+    for (let k = 1; k <= 5; k++) {
+      const resetStyle = document.getElementById(`x${j}y${k}`);
       resetStyle.style.background = "white";
     }
   }
@@ -226,102 +187,3 @@ const resetCard = () => {
 
 //読み込み時にビンゴカード作成
 window.addEventListener('load', bingoCardNumber);
-
-
-
-
-
-
-//バックアップ
-/*
-function bingoCardNumber(){
-  for (let i = 0; i < 5; i++) {
-    while (row1.length <= 5) {
-      cardRandomNumber(1, 15);
-      for (addNum of row1) {
-        if (addNum != result) {
-          row1.push(result);
-        }
-      }
-    }
-    card[i].push(result);
-    cardRandomNumber(16, 30);
-    card[i].push(result);
-    cardRandomNumber(31, 15);
-    card[i].push(result);
-    cardRandomNumber(46, 60);
-    card[i].push(result);
-    cardRandomNumber(61, 75);
-    card[i].push(result);
-    cardNumbers.push(card[i]);
-  }
-  return cardNumbers;
-}
-*/
-
-
-
-
-
-// function bingoCardNumber(){
-//   for (let i = 0; i < 5; i++) {
-//     cardRandomNumber(1, 15);
-//     row1.push(result);
-//     cardRandomNumber(16, 30);
-//     row2.push(result);
-//     cardRandomNumber(31, 15);
-//     row3.push(result);
-//     cardRandomNumber(46, 60);
-//     row4.push(result);
-//     cardRandomNumber(61, 75);
-//     row5.push(result);
-//     cardNumbers.push(card[i]);
-//   }
-//   return cardNumbers;
-// }
-
-/*
-function bingoCardNumber(){
-  let minNum = 1;
-  let maxNum = 15; 
-  for (let i = 0; i < 5; i++) {
-    minNum += 15;
-    maxNum += 15;
-    cardRandomNumber(1, 15);
-    card[i].push(result);
-    cardRandomNumber(16, 30);
-    card[i].push(result);
-    cardRandomNumber(31, 15);
-    card[i].push(result);
-    cardRandomNumber(46, 60);
-    card[i].push(result);
-    cardRandomNumber(61, 75);
-    card[i].push(result);
-    cardNumbers.push(card[i]);
-  }
-  return cardNumbers;
-}
-*/
-
-/*
-for (let i = 0; i < 5; i++) {
-    while(true) {
-      cardRandomNumber(1, 15);
-      if(!card[i].includes(result)) {
-        card[i].push(result);
-        break;
-      }
-    }
-
-    card[i].push(result);
-    cardRandomNumber(16, 30);
-    card[i].push(result);
-    cardRandomNumber(31, 45);
-    card[i].push(result);
-    cardRandomNumber(46, 60);
-    card[i].push(result);
-    cardRandomNumber(61, 75);
-    card[i].push(result);
-
-    cardNumbers.push(card[i]);
-*/
